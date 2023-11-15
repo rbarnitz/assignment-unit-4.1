@@ -33,6 +33,8 @@ function multiplyThree(number1,number2,number3) {
 
 }
 console.log(multiplyThree(8,3,1));
+console.log(multiplyThree(0,0,0));
+console.log(multiplyThree(1,2,3));
 
 
 
@@ -60,7 +62,8 @@ console.log(isPositive(-3));
  
 // 6. Function to return the _last_ item in an array. If the 
 //    array is empty, return `undefined`.
-const testArray = [1,44,23,8,987];
+let testArray = [1,44,23,8,987];
+const emptyArray = [];
 
 function getLast(array) {
 if (array.length > 0) {
@@ -71,6 +74,7 @@ return 'Undefined';
 }
 }
 console.log(getLast(testArray));
+console.log(getLast(emptyArray));
 
 // 7. Function to find a value in an array. Return true if the 
 //    value is found and false otherwise. Use a loop;
@@ -78,21 +82,22 @@ console.log(getLast(testArray));
 
 const testArray2 = [1,2,3,4,5,6,7,8,9];
 
+let result;
 function find(value, array) {
   for (let thing of array){
-    console.log(thing);
+    
     if (thing === value){
-      return true;
+      result = true;
+      return result;
     } 
     else {
-
-    return false;
+    result = false;
+    
     }
-
   }
-
+return result;
 }
-console.log(find(6,testArray2));
+console.log(find(22,testArray2));
 
 
 // ----------------------
@@ -100,30 +105,72 @@ console.log(find(6,testArray2));
 // ----------------------
 // 8. Function to check if a letter is the first letter in a 
 //    string. Return true if it is, and false otherwise
-function isFirstLetter(letter, string) {
 
+function isFirstLetter(letter, string) {
+string.split('')
+if(letter === string[0])
+  return true;
+
+else{
+  return false;
+}
 }
 
 
 // 9. Function to return the sum of all numbers in an array
+let add = [2,2,2,2,2,2]
+
+
 function sumAll(array) {
   let sum = 0;
-  // TODO: loop to add items
+  for (let number of array){
+  sum = sum + number;
+  }
 
+  // TODO: loop to add items
   // TODO: return the sum
+  return sum;
 }
+console.log(sumAll(add));
 
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
-function allPositive() {
 
+const testArray3 = [0,-1,-2,3,4,5,6];
+
+
+
+function allPositive(array) {
+  let positivesArray= [];
+
+for (let number of array){
+  if (number > 0){
+    positivesArray.push(number);
+    
+  }
 }
+return positivesArray;
+}
+console.log(allPositive(testArray3));
 
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
 //     CodeWars(https://www.codewars.com/). Then describe it 
 //     here in a comment, write the function, and test it!
+
+//This function returns the absolute value of a number. 
+//If the number is positive, or zero, it returns the number.
+// if the number is negative, it returns that number as a positive integer.
+
+function absolute(n) {
+	if(n<0){
+	return n*-1;
+}
+	else{
+		return n;
+	}
+}
 
 
 // DO NOT MODIFY
